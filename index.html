@@ -18,8 +18,8 @@
 
 <body ng-app="chartist">
     <div ng-controller="chartistController">
-        <md-tabs md-selected="selectedIndex">
-            <md-tab ng-repeat="(key, value) in allTheCharts" id="{{key}}" label="{{key}}" md-on-select="tabToggled(key)">'
+        <md-tabs md-selected="selectedIndex" md-dynamic-height="true">
+            <md-tab ng-repeat="(key, value) in allTheCharts" id="{{key}}" label="{{key}}" md-on-select="tabToggled(key)">
                 <chartist class="ct-chart ct-major-eleventh" chartist-data="value.data" chartist-chart-options="value.options" chartist-chart-type="Bar"></chartist>
             </md-tab>
         </md-tabs>
