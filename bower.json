@@ -21,6 +21,7 @@
   ],
   "dependencies": {
     "angular-chartist.js": "^3.3.13",
-    "angular-material": "^1.0.6"
+    "angular-material": "^1.0.6",
+    "chartist-plugin-legend": "^0.1.3"
   }
 }
