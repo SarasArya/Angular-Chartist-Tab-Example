@@ -6,23 +6,36 @@
     <link rel="stylesheet" type="text/css" href="bower_components/chartist/dist/chartist.min.css">
     <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css">
     <!-- <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.layouts.css"> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/chartist/dist/chartist.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-chartist.js/dist/angular-chartist.js"></script>
     <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
     <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
     <script type="text/javascript" src="bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="bower_components/chartist-plugin-axistitle/dist/chartist-plugin-axistitle.js"></script>
     <script type="text/javascript" src="app.js"></script>
 </head>
 
 <body ng-app="chartist">
     <div ng-controller="chartistController">
-        <md-tabs md-selected="selectedIndex" md-dynamic-height="true">
-            <md-tab ng-repeat="(key, value) in allTheCharts"  label="{{key}}" md-on-select="tabToggled(key)">
-                <chartist class="ct-chart ct-major-eleventh" id="{{key}}" chartist-data="value.data" chartist-chart-options="value.options" chartist-chart-type="Bar"></chartist>
-            </md-tab>
-        </md-tabs>
+        <div ng-init="change()">
+            <md-select ng-model="attribute" ng-change="change()">
+                <md-option ng-value="attr" ng-repeat="attr in attributes">{{ attr }}</md-option>
+            </md-select>
+            <md-tabs md-selected="selectedIndex" md-dynamic-height="true">
+                <md-tab label="Chart-1">
+                <chartist class="ct-chart ct-major-eleventh" id="chart-1" chartist-data="data1" chartist-chart-options="options1" chartist-chart-type="Bar"></chartist>
+                </md-tab>
+                <md-tab label="Chart-2">
+                <chartist class="ct-chart ct-major-eleventh" id="chart-2" chartist-data="data2" chartist-chart-options="options2" chartist-chart-type="Bar"></chartist>
+                </md-tab>
+                <md-tab label="Chart-3">
+               <chartist class="ct-chart ct-major-eleventh" id="chart-3" chartist-data="data3" chartist-chart-options="options3" chartist-chart-type="Bar"></chartist>
+                </md-tab>
+            </md-tabs>
+        </div>
     </div>
 </body>
+
 </html>
